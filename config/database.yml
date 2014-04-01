@@ -1,0 +1,14 @@
+development: &development
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  database: bookmarky_development
+
+test:
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  database: bookmarky_test
+
+production:
+  <<: *development
