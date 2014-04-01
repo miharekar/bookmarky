@@ -29,6 +29,7 @@ GEM
       actionpack (>= 3, < 5)
       activerecord (>= 3, < 5)
       activesupport (>= 3, < 5)
+    addressable (2.3.6)
     arel (4.0.2)
     atomic (1.1.16)
     awesome_print (1.2.0)
@@ -104,12 +105,20 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metainspector (2.1.0)
+      addressable (~> 2.3.5)
+      nokogiri (~> 1.6)
+      open_uri_redirections (~> 0.1.4)
     method_source (0.8.2)
     mime-types (1.25.1)
+    mini_portile (0.5.3)
     minitest (4.7.5)
     multi_json (1.9.2)
     nav_link_to (0.0.4)
     nio4r (1.0.0)
+    nokogiri (1.6.1)
+      mini_portile (~> 0.5.0)
+    open_uri_redirections (0.1.4)
     pg (0.17.1)
     polyglot (0.3.4)
     pry (0.9.12.6)
@@ -230,6 +239,7 @@ DEPENDENCIES
   haml-rails
   hirb
   jquery-rails
+  metainspector
   nav_link_to
   pg
   pry

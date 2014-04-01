@@ -33,8 +33,11 @@ gem 'simple_form'
 # Tags
 gem 'acts-as-taggable-on'
 
-# Active links
+# Navigation links
 gem 'nav_link_to'
+
+# Simple scraper
+gem 'metainspector'
 
 group :production do
   gem 'unicorn'
