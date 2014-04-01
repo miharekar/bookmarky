@@ -3,7 +3,8 @@ class BookmarksController < ApplicationController
   end
 
   def search
-    @bookmarks = Bookmark.search(params[:search])
+    @search = params[:search]
+    @bookmarks = Bookmark.search(@search)
   end
 
   def create
