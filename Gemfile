@@ -34,7 +34,7 @@ gem 'simple_form'
 gem 'acts-as-taggable-on'
 
 # Navigation links
-gem 'nav_link_to'
+gem 'active_link_to'
 
 # Simple scraper
 gem 'metainspector'

@@ -9,5 +9,5 @@
       %a.navbar-brand{href: "/"} Bookmarky
     .navbar-collapse.collapse
       %ul.nav.navbar-nav
-        %li
-          = nav_link_to 'Sites', sites_path
+        = active_link_to 'Sites', sites_path, :wrap_tag => :li
+        = active_link_to 'Bookmarks', bookmarks_path, :wrap_tag => :li
