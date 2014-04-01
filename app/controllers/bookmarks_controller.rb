@@ -2,7 +2,7 @@ class BookmarksController < ApplicationController
   def create
     @bookmark = Bookmark.new(bookmark_params)
     if @bookmark.save
-      raise @bookmark
+      redirect_to :site_index, notice: 'Bookmark successfully added'
     else
       redirect_to :root, alert: "URL can't be blank"
     end

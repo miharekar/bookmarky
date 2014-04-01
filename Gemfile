@@ -33,6 +33,9 @@ gem 'simple_form'
 # Tags
 gem 'acts-as-taggable-on'
 
+# Active links
+gem 'nav_link_to'
+
 group :production do
   gem 'unicorn'
   gem 'rails_12factor'

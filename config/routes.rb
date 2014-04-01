@@ -1,4 +1,5 @@
 Bookmarky::Application.routes.draw do
+  get "site/index"
   root 'home#index'
   resources :bookmarks, only: :create
 

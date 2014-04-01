@@ -10,10 +10,7 @@
     %script{src: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"}
     = javascript_include_tag 'application'
   %body
-    .navbar.navbar-default.navbar-static-top
-      .container
-        .navbar-header
-          %a.navbar-brand{href: "/"} Bookmarky
+    = render 'layouts/navigation'
     .container
       = render 'layouts/flash'
       = yield
