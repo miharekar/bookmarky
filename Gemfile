@@ -27,6 +27,9 @@ gem 'turbolinks'
 gem 'haml'
 gem 'haml-rails'
 
+# Forms
+gem 'simple_form'
+
 group :production do
   gem 'unicorn'
   gem 'rails_12factor'

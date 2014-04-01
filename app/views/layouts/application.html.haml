@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %meta{content: 'width=device-width, initial-scale=1.0', name: 'viewport'}
+    %title Bookmarky
+    %meta{content: 'Simple Bookmarking Tool', name: 'description'}
+    %link{href: '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel: 'stylesheet'}
+    = stylesheet_link_tag 'application'
+    %script{src: "//code.jquery.com/jquery-2.1.0.min.js"}
+    %script{src: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"}
+    = javascript_include_tag 'application'
+  %body
+    .navbar.navbar-default.navbar-static-top
+      .container
+        .navbar-header
+          %a.navbar-brand{href: "/"} Bookmarky
+    .container
+      = yield
