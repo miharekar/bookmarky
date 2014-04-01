@@ -1,4 +1,10 @@
 class BookmarksController < ApplicationController
+  def index
+  end
+
+  def search
+  end
+
   def create
     @bookmark = Bookmark.new(bookmark_params)
     if @bookmark.save

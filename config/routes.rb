@@ -1,6 +1,8 @@
 Bookmarky::Application.routes.draw do
   root 'home#index'
-  resources :bookmarks, only: [:create, :show]
+  resources :bookmarks, only: [:create, :show, :index] do
+    post :search, on: :collection
+  end
   resources :sites, only: :index
 
   # The priority is based upon order of creation: first created -> highest priority.
