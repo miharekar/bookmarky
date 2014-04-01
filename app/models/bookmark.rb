@@ -7,25 +7,29 @@ class Bookmark < ActiveRecord::Base
   acts_as_taggable
 
   before_save :set_site
-  before_save :shorten_url, :load_meta # This should be run in background
+  before_save :shorten_url, :get_metadata # This should be run in background
 
   def set_site
     self.site = Site.find_or_create_by(domain: domain)
   end
 
   def shorten_url
-    self.short_url = open(TINY_URL_API + url).read
-  end
-
-  def load_meta
-    meta = MetaInspector.new(url)
-    self.title = meta.title.truncate(250, separator: /\s/)
-    self.keywords = meta.meta['keywords']
-    self.description = meta.meta['description']
+    self.short_url = get_short_url
   end
 
   private
   def domain
     URI.parse(url).host
+  end
+
+  def get_short_url
+    open(TINY_URL_API + url).read
+  end
+
+  def get_metadata
+    meta = MetaInspector.new(url)
+    self.title = meta.title.truncate(250, separator: /\s/)
+    self.keywords = meta.meta['keywords']
+    self.description = meta.meta['description']
   end
 end
