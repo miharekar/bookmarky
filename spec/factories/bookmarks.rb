@@ -12,6 +12,7 @@ FactoryGirl.define do
 
     factory :bonar do
       url "http://www.bonar.si/"
+      tag_list 'bonbon, boni, bonar'
     end
   end
 end

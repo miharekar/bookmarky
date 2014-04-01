@@ -17,6 +17,12 @@ class Bookmark < ActiveRecord::Base
     self.short_url = get_short_url
   end
 
+  def self.search(text)
+    fields = [:title, :keywords, :description, :url]
+    search_string = fields.map{|s| "#{s} ILIKE :text"}.join(' OR ')
+    where(search_string, { text: "%#{text}%" }) + tagged_with(text, wild: true, any: true)
+  end
+
   private
   def domain
     URI.parse(url).host

@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe Bookmark do
-  subject { create(:bonar) }
-
   context '#create' do
+    subject { create(:bonar) }
+
     it 'creates new Site' do
       expect(Site.count).to eq(0)
       create(:bootstrap_buttons)
@@ -29,6 +29,30 @@ describe Bookmark do
       expect(subject.title).not_to be_empty
       expect(subject.keywords).not_to be_empty
       expect(subject.description).not_to be_empty
+    end
+  end
+
+  context '#search' do
+    let!(:bonar) { create(:bonar) }
+    it 'by title' do
+      expect(Bookmark.search('bonar').first).to eq(bonar)
+    end
+
+    it 'by keywords' do
+      expect(Bookmark.search('študentski boni').first).to eq(bonar)
+    end
+
+    it 'by description' do
+      expect(Bookmark.search('ponudniki').first).to eq(bonar)
+    end
+
+    it 'by URL' do
+      expect(Bookmark.search('nar.si').first).to eq(bonar)
+    end
+
+    it 'by tags' do
+      expect(Bookmark.search('bonbon').first).to eq(bonar)
+      expect(Bookmark.search('onbo').first).to eq(bonar)
     end
   end
 end
