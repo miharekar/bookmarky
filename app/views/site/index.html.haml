@@ -1,2 +1,15 @@
-= @sites.each do |site|
-  = site.bookmarks.inspect
+#sites.panel-group
+  - @sites.each do |site|
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a{'data-parent' => '#sites', 'data-toggle' => 'collapse', href: "#site-#{site.id}"}
+            = site.domain
+      .panel-collapse.collapse{ id: "site-#{site.id}" }
+        .panel-body
+          %ul
+            - site.bookmarks.each do |bookmark|
+              %li
+                %a{href: bookmark.url}= bookmark.url
+                |
+                = bookmark.tag_list
