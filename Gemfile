@@ -30,6 +30,9 @@ gem 'haml-rails'
 # Forms
 gem 'simple_form'
 
+# Tags
+gem 'acts-as-taggable-on'
+
 group :production do
   gem 'unicorn'
   gem 'rails_12factor'
