@@ -10,6 +10,6 @@
           %ul
             - site.bookmarks.each do |bookmark|
               %li
-                %a{href: bookmark.url}= bookmark.url
+                %a{href: bookmark.short_url}= bookmark.url
                 |
                 = bookmark.tag_list
