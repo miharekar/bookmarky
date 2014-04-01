@@ -1,4 +1,4 @@
-class SiteController < ApplicationController
+class SitesController < ApplicationController
   def index
     @sites = Site.includes(:bookmarks)
   end

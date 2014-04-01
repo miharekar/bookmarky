@@ -10,4 +10,4 @@
           %ul
             - site.bookmarks.each do |bookmark|
               %li
-                %a{href: bookmark.short_url}= bookmark.title
+                = link_to bookmark.title, bookmark
