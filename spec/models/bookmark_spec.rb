@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Bookmark do
+describe Bookmark, :vcr do
   context '#create' do
     subject { create(:bonar) }
 

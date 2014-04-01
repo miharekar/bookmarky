@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'webmock/rspec'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -11,6 +12,14 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # Automigrate if needs migration
 if ActiveRecord::Migrator.needs_migration?
   ActiveRecord::Migrator.migrate(File.join(Rails.root, 'db/migrate'))
+end
+
+require 'vcr'
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/cassettes'
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
 end
 
 RSpec.configure do |config|
@@ -39,4 +48,7 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  # so we can use :vcr rather than :vcr => true;
+  config.treat_symbols_as_metadata_keys_with_true_values = true
 end
