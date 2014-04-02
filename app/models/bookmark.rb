@@ -22,7 +22,7 @@ class Bookmark < ActiveRecord::Base
   end
 
   def self.search(query)
-    searchy(query) + tagged_with(query, wild: true, any: true)
+    searchy(query) | tagged_with(query, wild: true, any: true)
   end
 
   private

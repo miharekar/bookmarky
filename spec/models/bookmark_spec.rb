@@ -34,6 +34,7 @@ describe Bookmark, :vcr do
 
   context '#search' do
     let!(:bonar) { create(:bonar) }
+
     it 'by title' do
       expect(Bookmark.search('bonar').first).to eq(bonar)
     end
@@ -53,6 +54,10 @@ describe Bookmark, :vcr do
     it 'by tags' do
       expect(Bookmark.search('bonbon').first).to eq(bonar)
       expect(Bookmark.search('onbo').first).to eq(bonar)
+    end
+
+    it 'only displays item once' do
+      expect(Bookmark.search('bon').count).to eq(1)
     end
   end
 end
