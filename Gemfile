@@ -52,13 +52,16 @@ group :development do
   gem 'sprockets_better_errors'
 end
 
-group :development, :test do
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
+group :test do
   gem 'webmock'
   gem 'vcr'
   gem 'guard-rspec'
   gem 'terminal-notifier-guard'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
   # App preloading
   gem 'spring-commands-rspec'
   # Pry stuff
