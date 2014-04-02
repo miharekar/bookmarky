@@ -39,6 +39,9 @@ gem 'active_link_to'
 # Simple scraper
 gem 'metainspector'
 
+# Newrelic
+gem 'newrelic_rpm'
+
 group :production do
   gem 'unicorn'
   gem 'rails_12factor'
