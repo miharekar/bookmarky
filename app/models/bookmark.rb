@@ -4,10 +4,14 @@ class Bookmark < ActiveRecord::Base
 
   belongs_to :site
   validates :url, presence: true
+
   acts_as_taggable
+  ActsAsTaggableOn.remove_unused_tags = true
 
   before_save :set_site
   before_save :shorten_url, :get_metadata # This should be run in background
+
+  searchy_fields :title, :keywords, :description, :url
 
   def set_site
     self.site = Site.find_or_create_by(domain: domain)
@@ -17,10 +21,8 @@ class Bookmark < ActiveRecord::Base
     self.short_url = get_short_url
   end
 
-  def self.search(text)
-    fields = [:title, :keywords, :description, :url]
-    search_string = fields.map{|s| "#{s} ILIKE :text"}.join(' OR ')
-    where(search_string, { text: "%#{text}%" }) + tagged_with(text, wild: true, any: true)
+  def self.search(query)
+    searchy(query) + tagged_with(query, wild: true, any: true)
   end
 
   private
