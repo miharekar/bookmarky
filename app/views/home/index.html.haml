@@ -4,5 +4,5 @@
     %p Enter the bookmark URL and optionally tags and the bookmark will be created
     = simple_form_for @bookmark do |f|
       = f.input :url
-      = f.input :tag_list
+      = f.input :tag_list, input_html:{id: 'bookmark_tags'}
       = f.button :submit, class: 'btn-primary'

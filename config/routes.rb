@@ -4,6 +4,7 @@ Bookmarky::Application.routes.draw do
     post :search, on: :collection
   end
   resources :sites, only: :index
+  get 'tags' => 'home#tags'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
