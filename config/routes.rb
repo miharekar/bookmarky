@@ -1,7 +1,7 @@
 Bookmarky::Application.routes.draw do
   root 'home#index'
   resources :bookmarks, only: [:create, :show, :index] do
-    post :search, on: :collection
+    get :search, on: :collection
   end
   resources :sites, only: :index
   get 'tags' => 'home#tags'

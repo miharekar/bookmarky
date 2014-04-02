@@ -1,7 +1,10 @@
-%h1
-  Results for
-  %em= @search
-%ul
-  - @bookmarks.each do |bookmark|
-    %li
-      = link_to bookmark.title, bookmark
+.row
+  = render 'search'
+.row
+  %h1
+    Results for
+    %em= @search
+  %ul
+    - @bookmarks.each do |bookmark|
+      %li
+        = link_to bookmark.title, bookmark
