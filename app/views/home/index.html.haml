@@ -1,7 +1,7 @@
 .jumbotron
   .container
     %h1 Bookmarky
-    %p Enter a URL and tags and the bookmark will be created
+    %p Enter the bookmark URL and optionally tags and the bookmark will be created
     = simple_form_for @bookmark do |f|
       = f.input :url
       = f.input :tag_list
