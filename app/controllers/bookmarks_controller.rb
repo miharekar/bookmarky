@@ -7,6 +7,10 @@ class BookmarksController < ApplicationController
     @bookmarks = Bookmark.search(@search)
   end
 
+  def tagged
+    @bookmarks = Bookmark.tagged_with(params[:tag])
+  end
+
   def create
     @bookmark = Bookmark.new(bookmark_params)
     if @bookmark.save

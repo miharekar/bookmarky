@@ -5,6 +5,4 @@
     Results for
     %em= @search
   %ul
-    - @bookmarks.each do |bookmark|
-      %li
-        = link_to bookmark.title, bookmark
+    = render @bookmarks

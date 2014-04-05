@@ -8,7 +8,7 @@
     = link_to @bookmark.short_url, @bookmark.short_url
   %li
     Tags:
-    = show_detail @bookmark.tag_list
+    = show_detail render_tags(@bookmark.tag_list)
   %li
     Keywords:
     = show_detail @bookmark.keywords
