@@ -1,17 +1,17 @@
 %h1= @bookmark.title
 %ul
   %li
-    Tags:
-    = @bookmark.tag_list
-  %li
     Original URL:
-    = link_to @bookmark.url
+    = link_to @bookmark.url, @bookmark.url
   %li
     Short URL:
-    = link_to @bookmark.short_url
+    = link_to @bookmark.short_url, @bookmark.short_url
+  %li
+    Tags:
+    = show_detail @bookmark.tag_list
   %li
     Keywords:
-    = @bookmark.keywords
+    = show_detail @bookmark.keywords
   %li
     Description:
-    = @bookmark.description
+    = show_detail @bookmark.description
